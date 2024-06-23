@@ -4,6 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CurrentBoardPanel extends JPanel {
+    public int hit = 0;
+    public int miss = 0;
+    public int total = 0;
+    public JLabel hitLabel;
+    public JLabel missLabel;
+    public JLabel totalLabel;
+
     public CurrentBoardPanel() {
 
         setLayout(new GridLayout(3,2, 0, 10));
@@ -13,25 +20,30 @@ public class CurrentBoardPanel extends JPanel {
         label1.setHorizontalAlignment(SwingConstants.CENTER);
         label1.setFont(new Font("Arial", Font.PLAIN, 28));
         add(label1);
-        JLabel label2 = new JLabel("2");
-        label2.setHorizontalAlignment(SwingConstants.CENTER);
-        label2.setFont(new Font("Arial", Font.PLAIN, 28));
-        add(label2);
+
+        hitLabel = new JLabel("0");
+        hitLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        hitLabel.setFont(new Font("Arial", Font.PLAIN, 28));
+        add(hitLabel);
+
         JLabel label3 = new JLabel("Miss");
         label3.setHorizontalAlignment(SwingConstants.CENTER);
         label3.setFont(new Font("Arial", Font.PLAIN, 28));
         add(label3);
-        JLabel label4 = new JLabel("4");
-        label4.setHorizontalAlignment(SwingConstants.CENTER);
-        label4.setFont(new Font("Arial", Font.PLAIN, 28));
-        add(label4);
+
+        missLabel = new JLabel("0");
+        missLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        missLabel.setFont(new Font("Arial", Font.PLAIN, 28));
+        add(missLabel);
+
         JLabel label5 = new JLabel("Total");
         label5.setHorizontalAlignment(SwingConstants.CENTER);
         label5.setFont(new Font("Arial", Font.PLAIN, 28));
         add(label5);
-        JLabel label6 = new JLabel("6");
-        label6.setHorizontalAlignment(SwingConstants.CENTER);
-        label6.setFont(new Font("Arial", Font.PLAIN, 28));
-        add(label6);
+
+        totalLabel = new JLabel("0");
+        totalLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        totalLabel.setFont(new Font("Arial", Font.PLAIN, 28));
+        add(totalLabel);
     }
 }

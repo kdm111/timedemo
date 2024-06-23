@@ -15,6 +15,12 @@ public class GamePanel extends JPanel {
         gbc.fill = GridBagConstraints.NONE;
         // 가운데 정렬
         gbc.anchor = GridBagConstraints.CENTER;
+        gbc.gridwidth = 1;
+        // 가로 방향 비율 추가 분배 x
+        gbc.weightx = 1.0;
+        // 세로 방향 비율 추가 분배 x
+        gbc.weighty = 1.0;
+
         JPanel topDummy = new DummyPanel();
         topDummy.setPreferredSize(new Dimension(1280, 20));
         gbc.gridx = 0;
@@ -27,19 +33,19 @@ public class GamePanel extends JPanel {
         // jp1 설정
         String imgURL1 = "https://sesac-projects-s3.s3.ap-northeast-2.amazonaws.com/image1.png";
         JPanel jp1 = new DrawingPanel(imgURL1);
-
+        // 자신의 pk
+        ((DrawingPanel)jp1).userid = 1;
         jp1.setPreferredSize(drawDeinsion);
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.gridwidth = 1;
-        // 가로 방향 비율 추가 분배 x
-        gbc.weightx = 1.0;
-        // 세로 방향 비율 추가 분배 x
-        gbc.weighty = 1.0;
+
         add(jp1, gbc);
 
         String imgURL2 = "https://sesac-projects-s3.s3.ap-northeast-2.amazonaws.com/image2.png";
         JPanel jp2 = new DrawingPanel(imgURL2);
+        // 상대의 pk
+        ((DrawingPanel)jp2).userid = 2;
+
         jp2.setPreferredSize(drawDeinsion);
         gbc.gridx = 1;
         gbc.gridy = 1;
@@ -52,6 +58,9 @@ public class GamePanel extends JPanel {
         add(jp3, gbc);
 
         JPanel jp4 = new GameBoardPanel();
+        ((DrawingPanel)jp1).dc.cbp = ((GameBoardPanel)jp4).cbp;
+        ((DrawingPanel)jp2).dc.cbp = ((GameBoardPanel)jp4).cbp;
+
         jp4.setPreferredSize(new Dimension(250, 640));
         gbc.gridx = 3;
         gbc.gridy = 1;
